@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="host" default="localhost" />
+    <arg name="port" default="50000"/>
+    <arg name="container_name" default="" />
+
+    <node pkg="canopy_client" type="client_node.py" name="canopy_client" output="screen">
+        <param name="name" value="canopy_leaflet_$(arg container_name)"/>
+        <param name="host" value="$(arg host)"/>
+        <param name="port" value="$(arg port)"/>
+        <param name="private_key" value="NGNJEyQhj6Cx7FD4j" />
+        <param name="description" value="Canopy Leaflet - $(arg container_name)" />
+        <rosparam>
+            publishing:
+                - /result
+            types:
+                - std_msgs/Int32
+            trusted:
+                - ".*"
+        </rosparam>
+    </node>
+    <node pkg="canopy_paas_demo" type="leaflet.py" name="test" output="screen">
+    </node>
+</launch>

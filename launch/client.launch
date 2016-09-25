@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="host" default="wallarelvo-tower.csail.mit.edu" />
+    <arg name="port" default="8080"/>
+
+    <node pkg="canopy_client" type="client_node.py" name="canopy_client" output="screen">
+        <param name="name" value="client"/>
+        <param name="host" value="$(arg host)"/>
+        <param name="port" value="$(arg port)"/>
+        <param name="private_key" value="NGNJEyQhj6Cx7FD4j" />
+        <param name="description" value="client" />
+        <rosparam>
+            publishing:
+                - /input
+            types:
+                - std_msgs/Int32
+            trusted:
+                - ".*"
+        </rosparam>
+    </node>
+    <node pkg="canopy_paas_demo" type="client.py" name="test" output="screen">
+    </node>
+</launch>

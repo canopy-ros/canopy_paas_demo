@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <name>canopy_paas_demo</name>
+  <version>0.0.1</version>
+  <description>Canopy Cloud Robotics Framework</description>
+  <maintainer email="raphc@mit.edu">Raphael Chang</maintainer>
+  <license>GPLv3</license>
+  <url type="website">http://github.com/canopy-ros/canopy-paas-demo</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>
