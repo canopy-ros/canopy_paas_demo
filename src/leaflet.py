@@ -11,7 +11,7 @@ class Leaflet(object):
         self.sub = rospy.Subscriber('/client/input', Int32, self.callback)
 
     def callback(self, data):
-        self.pub.publish(data * 2)
+        self.pub.publish(data.data * 2)
 
 if __name__ == "__main__":
     rospy.init_node("leaflet", anonymous=False)
