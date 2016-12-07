@@ -3,6 +3,7 @@ before_install:
 
 ros_install:
     - cv-bridge
+    - image-transport
 
 install:
     - git clone https://github.com/raphaelchang/face_detection src/face_detection
