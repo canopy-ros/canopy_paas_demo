@@ -7,6 +7,7 @@ ros_install:
 
 install:
     - git clone https://github.com/raphaelchang/face_detection src/face_detection
+    - cd src/face_detection && git pull && cd ../..
 
 before_script:
     - echo "Before Script"
