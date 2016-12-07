@@ -20,7 +20,7 @@ before_deploy:
     - echo "Before Deploy"
 
 deploy:
-    - roslaunch canopy_paas_demo leaflet.launch host:=$HOST port:=$PORT key:=$KEY container_name:=$NAME
+    - roslaunch canopy_paas_demo face_detection_demo_leaflet.launch host:=$HOST port:=$PORT key:=$KEY container_name:=$NAME
 
 after_deploy:
     - echo "After Deploy"

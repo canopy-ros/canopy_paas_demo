@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="host" default="localhost" />
+    <arg name="port" default="50000"/>
+    <arg name="key" default="" />
+    <arg name="container_name" default="" />
+    <arg name="face_cascade_name_0"  default="$(find face_detection)/include/face_detection/HaarCascades/haarcascade_frontalface_alt.xml" />
+    <arg name="face_cascade_name_1"  default="$(find face_detection)/include/face_detection//HaarCascades/haarcascade_frontalface_alt2.xml" />
+    <arg name="face_cascade_name_2"  default="$(find face_detection)/include/face_detection//HaarCascades/haarcascade_frontalface_alt_tree.xml" />
+    <arg name="face_cascade_name_3"  default="$(find face_detection)/include/face_detection//HaarCascades/haarcascade_frontalface_default.xml" />
+    <arg name="face_cascade_name_4"  default="$(find face_detection)/include/face_detection/lbpCascades/lbpcascade_frontalface.xml" />
+
+    <node pkg="face_detection" type="face_detection" name="face_detection"
+        args="$(arg face_cascade_name_0)
+        $(arg face_cascade_name_1)
+        $(arg face_cascade_name_2)
+        $(arg face_cascade_name_3)
+        $(arg face_cascade_name_4)"
+        output="screen"/>
+
+    <node pkg="canopy_client" type="client_node.py" name="canopy_client" output="screen">
+        <param name="name" value="canopy_leaflet_$(arg container_name)"/>
+        <param name="host" value="$(arg host)"/>
+        <param name="port" value="$(arg port)"/>
+        <param name="private_key" value="$(arg key)" />
+        <param name="description" value="Canopy Leaflet - $(arg container_name)" />
+        <rosparam>
+            publishing:
+                - /faceCoord
+            types:
+                - std_msgs/Int32MultiArray
+            trusted:
+                - ".*"
+        </rosparam>
+    </node>
+</launch>
