@@ -27,9 +27,12 @@
         <rosparam>
             publishing:
                 - /faceCoord
+                - /facerec/image_raw
             types:
                 - std_msgs/Int32MultiArray
+                - sensor_msgs/Image
             trusted:
+                - ".*"
                 - ".*"
         </rosparam>
     </node>
