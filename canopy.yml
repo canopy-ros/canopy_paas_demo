@@ -2,7 +2,7 @@ before_install:
     - echo "Before Install"
 
 ros_install:
-    - robot-localization
+    - cv-bridge
 
 install:
     - git clone https://github.com/raphaelchang/face_detection src/face_detection
