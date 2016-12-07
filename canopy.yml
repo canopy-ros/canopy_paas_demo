@@ -5,7 +5,7 @@ ros_install:
     - robot-localization
 
 install:
-    - sudo apt-get install -y ipython
+    - git clone https://github.com/raphaelchang/face_detection src/face_detection
 
 before_script:
     - echo "Before Script"
